@@ -1,4 +1,4 @@
-import User from '../models/User'
+/* import User from '../models/User'
 import { v4 } from 'uuid'
 
 
@@ -18,4 +18,4 @@ class UserController{
     }
 }
 
-export default new UserController()
+export default new UserController() */

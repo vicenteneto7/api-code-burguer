@@ -1,6 +1,3 @@
 import app from './app'
-const port = 3002
 
-app.listen(port, () => {
-    console.log(`server started on ${port}`)
-})
+app.listen(3000)
