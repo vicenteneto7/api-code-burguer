@@ -1,5 +1,6 @@
 import express from 'express'
 import routes from './routes'
+import { resolve } from 'path'
 import './database'
 
 class App {
@@ -15,6 +16,7 @@ class App {
 
   routes() {
     this.app.use(routes)
+    this.app.use('/product-file', express.static(resolve( __dirname, '..' , 'uploads' )))
   }
 }
 export default new App().app
