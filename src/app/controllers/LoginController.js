@@ -1,5 +1,7 @@
 import * as Yup from 'yup'
 import User from '../models/User'
+import  jwt  from 'jsonwebtoken'
+import AuthConfig from '../../config/auth'
 
 class LoginController {
     async store(request, response){
@@ -26,7 +28,15 @@ class LoginController {
             return response.status(401).json({ error: 'Make sure your password or email are correct' })
         }
 
-        return response.json({ id: user.id, email, name: user.name, admin: user.admin})
+        return response.json({
+            id: user.id, 
+            email, 
+            name: user.name,
+            admin: user.admin,
+            token: jwt.sign({ id: user.id }, AuthConfig.secret, {
+                expiresIn: AuthConfig.expiresIn
+            } )
+        })
     }
     
 }
